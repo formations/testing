@@ -1,0 +1,19 @@
+= Fizz Buzz
+Nicolas Frankel
+:doctype: article
+:encoding: utf-8
+:lang: fr
+:sourcedir: src/main/java
+
+L'implémentation classique de _FizzBuzz_ consiste à afficher des nombres de 1 à 100 dans la console, avec une légère différence :
+
+* Si le nombre est divisible par 3, on affiche "Fizz" à la place
+* S'il est divisible par 5, "Buzz"
+* S'il est divisible par 3 *et* 5, "FizzBuzz"
+
+Afin de rendre le code testable, cette implémentation a été modifiée pour concaténer les nombres dans une chaîne de caractères et retourner cette dernière plutôt que de les afficher.
+
+[source,java,linenums,indent=0]
+----
+include::{sourcedir}/ch/frankel/training/testing/FizzBuzz.java[tags=compute]
+----

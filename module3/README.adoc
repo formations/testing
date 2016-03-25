@@ -1,0 +1,16 @@
+= Architecture en Couches
+Nicolas Frankel
+:doctype: article
+:encoding: utf-8
+:lang: fr
+:sourcedir: src/main/java
+:imagesdir: images
+
+Ce projet modélise un vérificateur de mots de passe. Il est structuré en couches "classique" :
+
+* Le service contient la logique métier
+* Le référentiel accède aux données, par exemple la base de données
+
+Le diagramme de séquence suivant illustre le cheminement du programme :
+
+image::seqdiagram.png[Diagramme de séquence]

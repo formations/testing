@@ -1,0 +1,54 @@
+= Travaux pratiques de testing
+Nicolas Frankel
+:doctype: article
+:encoding: utf-8
+:lang: fr
+
+== Introduction
+
+Un grand nombre de projets _legacy_ sur lesquels les développeurs sont amenés à travailler sont dépourvus de tests. Ou bien, la couverture de tests n'est pas suffisamment large pour remplir son rôle. Dans tous les cas, il est nécessaire d'améliorer la couverture de tests avant toute modification du code source pour éviter des régressions.
+
+C'est pour émuler cette situation que le dépôt est constitué par des modules comprenent du code Java non-testé :
+
+* link:module1[Module 1]
+* link:module2[Module 2]
+* link:module3[Module 3]
+
+== Objectif et mise en oeuvre
+
+L'objectif du TP est d'écrire les tests correspondants à l'implémentation existante.
+
+Les modules sont déjà configurés pour utiliser les librairies link:http://testng.org/[TestNG], link:http://mockito.org/[Mockito] et link:https://joel-costigliola.github.io/assertj/[AssertJ].
+
+[NOTE]
+====
+Aucune modification du source code original n'est nécessaire.
+====
+
+== Vérification
+
+Afin de vérifier que les tests écrits remplissent bien leur rôle, les plugins suivants ont été configurés.
+
+link:http://eclemma.org/jacoco/[Jacoco]:: Jacoco vérifie la couverture de test, c'est-à-dire la portion de code testé. Pour générer le rapport, utiliser la commande suivante :
++
+[source,bash]
+----
+mvn test jacoco:report
+----
++
+Le rapport généré est disponible sous `target/site/jacoco/index.html`
++
+link:http://pitest.org/[Pit]:: Pit vérifie que les tests sont pertinents, on parle de la couverture de mutation.
++
+[source,bash]
+----
+mvn test org.pitest:pitest-maven:mutationCoverage
+----
++
+Une fois généré, le rapport est disponible sous `target/pit-reports/index.html`.
+
+[TIP]
+====
+Lancer les commandes ci-dessus à la racine du projet exécute les commandes pour tous les modules. Pour restreindre l'exécution à un module, se placer dans le module désiré.
+====
+

@@ -1,0 +1,42 @@
+abstract class Location {
+  - x:int
+  - y:int
+}
+
+class Torch
+
+class Athlete {
+ + moveUp()
+ + moveDown()
+ + moveLeft()
+ + moveRight()
+}
+
+interface MovingStrategy {
+ + {abstract} move(athlete:Athlete, torch:Torch)
+}
+
+class SimpleMovingStrategy {
+ + move(athlete:Athlete, torch:Torch)
+}
+
+class Board {
+ - width:int
+ - height:int
+ - turn:int
+ - maxTurn:int
+ # hasReachedTorch():boolean
+ + start()
+}
+
+Torch -up-|> Location
+Athlete -up-|> Location
+SimpleMovingStrategy -up-|> MovingStrategy
+MovingStrategy ..> Athlete
+MovingStrategy ..> Torch
+Board -up-> "1" Athlete
+Board -up-> "1" Torch
+Board -up-> "1" MovingStrategy
+
+hide empty attributes
+hide empty methods

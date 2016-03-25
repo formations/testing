@@ -1,0 +1,19 @@
+= La Torche Olympique
+Nicolas Frankel
+:doctype: article
+:encoding: utf-8
+:lang: fr
+:sourcedir: src/main/java
+:imagesdir: images
+
+Ce projet modélise le problème suivant : un athlète doit récupérer la torche olympique. Le plateau sur lequels reposent l'athlète et la torche est une matrice rectangulaire à 2 dimensions. Chaque tour, l'athlète effectue un déplacement.
+
+Il existe plusieurs conditions pour que le programme s'arrête :
+
+* si l'athlète rejoint la torche, le programme s'arrête avec succès (code retour de 0)
+* si le nombre de tours limite est dépassé, il s'arrête en échec
+* si l'athlète dépasse la limite du plateau, il s'arrête également en échec
+
+La stratégie de déplacement par défaut déplace l'athlète d'une cellule dans l'une des 8 directions possibles.
+
+image::classdiagram.png[Diagramme de classes]

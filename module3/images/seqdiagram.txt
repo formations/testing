@@ -1,0 +1,26 @@
+actor " " as caller
+participant AuthenticationService as service
+participant PersonRepository as repo
+participant Person
+participant Encoder
+
+activate caller
+caller -> service: checkCredentials(\n name, password)
+activate service
+service -> repo: find(name)
+activate repo
+service <-- repo: return person
+deactivate repo
+service -> Person: getHash()
+activate Person
+service <-- Person: return hash
+deactivate Person
+service -> Encoder: encode(password)
+activate Encoder
+service <-- Encoder: return hash
+deactivate Encoder
+caller <-- service: return person
+deactivate service
+deactivate caller
+
+hide footbox
